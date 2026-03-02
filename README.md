@@ -15,5 +15,5 @@
 10. Calculate fields or perform joins with CNHP_Ecology_Field_Observations to update Landscape and Condition Comments after review
 
 ### Option 2 (Advanced)
-- Pull git repository to working GIS folder
+- Clone git repository to working GIS folder
 - Allows for updates to EIA_summarizer when I create code modifications
