@@ -9,7 +9,7 @@
 4. Add Folder Connection to EIA_summarizer.pyt folder
 5. Double click EIA_summarizer.pyt
 6. Double click Process EIA
-7. Select CNHP_Ecology_Field_Observations/CNHP_Ecology_Field_Observations as input feature class
+7. Select CNHP_Ecology_Field_Observations/CNHP_Ecology_Field_Observations (filtered as desired) as input feature class
 8. Enter optional excel file path if export is desired
 9. Review generated Standalone Table
 10. Calculate fields or perform joins with CNHP_Ecology_Field_Observations to update Landscape and Condition Comments after review
