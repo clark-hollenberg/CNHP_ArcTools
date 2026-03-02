@@ -98,7 +98,7 @@ class ProcessTableToEIA(object):
     
     def loadEIADefinitions(self):
             # Read in EIA mapping dictionaries from external CSV
-            input_dicts_path = "N:/Research/CNHP/Projects/SNHS/GIS\Bodie/2025/SNHS/EIAData/EIA_DescriptionDictionary_edits.csv"
+            input_dicts_path = "N:/Research/CNHP/SharedStorage/Clark/PyTools/EIA_DescriptionDictionary_edits.csv"
             self.desc_df = pd.read_csv(input_dicts_path)
 
     def summarizeEIA(self):
@@ -289,8 +289,8 @@ class ProcessTableToEIA(object):
             h1 = self.eia_df["H1_sources"].astype("string").str.strip()
             h1 = h1.where(h1.notna() & (h1 != ""), "")
 
-            self.eia_df["condition_desc"] = (
-                base + np.where(h1 != "", " Water sources: " + h1, "")
+            self.eia_df["Water_source_desc"] = (
+                np.where(h1 != "", " Water sources: " + h1, "")
             ).str.strip()
 
 
@@ -310,7 +310,8 @@ class ProcessTableToEIA(object):
                                             "H3: " + self.eia_df['H3'].map(H3_dictAll).fillna('') + '; ' +
                                             "S1: " + self.eia_df['S1_substrate'].map(S1_dict).fillna('') + '; ' +
                                             "S2: " + self.eia_df['S2_surfacewater'].map(S2_dict).fillna('') + '; ' +
-                                            "S3: " + self.eia_df['S3_algalgrowth'].map(S3_dict).fillna('')
+                                            "S3: " + self.eia_df['S3_algalgrowth'].map(S3_dict).fillna('') +
+                                            self.eia_df["Water_source_desc"]
             )
 
 
