@@ -148,7 +148,7 @@ class ProcessTableToEIA(object):
                     
                 ########### Calculate landscape score
                 l = (eia_row['L1'] + eia_row['L2'])/2
-                b = np.sqrt(np.sqrt((eia_row['B1'] * eia_row['B2'])*((eia_row['B3a'] + eia_row['B3b'])/2)))
+                b = np.sqrt(np.sqrt(eia_row['B1'] * eia_row['B2'])*((eia_row['B3a'] + eia_row['B3b'])/2))
                 land_score = l * 0.33 + b * 0.67
 
                 ####### calculate condition score
@@ -226,7 +226,7 @@ class ProcessTableToEIA(object):
                 return mapping_dict
 
             # Create mapping dictionaries
-            L1_dict = create_mapping_dict(self.desc_df[self.desc_df['Field'] == 'L1'], 'EIA_Value', 'Description')
+            L1_dict = create_mapping_dict(self.desc_df[self.desc_df['Field'] == 'L1A'], 'EIA_Value', 'Description')
             L2_dict = create_mapping_dict(self.desc_df[self.desc_df['Field'] == 'L2'], 'EIA_Value', 'Description')
             B1_dict = create_mapping_dict(self.desc_df[self.desc_df['Field'] == 'B1'], 'EIA_Value', 'Description')
             B2_dict = create_mapping_dict(self.desc_df[self.desc_df['Field'] == 'B2'], 'EIA_Value', 'Description')
@@ -279,8 +279,7 @@ class ProcessTableToEIA(object):
                 'PhysiochemicalComments',
                 'WaterSourceComments',
             ]
-
-            base = (
+            self.eia_df["condition_EIAcomment"] = (
                 self.eia_df[cond_comm_cols]
                 .astype("string")
                 .apply(lambda r: ' '.join(r.dropna().str.strip()), axis=1)
@@ -290,8 +289,8 @@ class ProcessTableToEIA(object):
             h1 = h1.where(h1.notna() & (h1 != ""), "")
 
             self.eia_df["Water_source_desc"] = (
-                np.where(h1 != "", " Water sources: " + h1, "")
-            ).str.strip()
+                np.where(h1 != "", ", water sources: " + h1, "")
+            )
 
 
 
