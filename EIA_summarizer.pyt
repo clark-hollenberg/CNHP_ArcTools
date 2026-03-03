@@ -288,8 +288,8 @@ class ProcessTableToEIA(object):
             h1 = self.eia_df["H1_sources"].astype("string").str.strip()
             h1 = h1.where(h1.notna() & (h1 != ""), "")
 
-            self.eia_df["Water_source_desc"] = (
-                np.where(h1 != "", ", water sources: " + h1, "")
+            water_source = (
+                np.where(h1 != "", "; Water sources: " + h1, "")
             )
 
 
@@ -310,7 +310,7 @@ class ProcessTableToEIA(object):
                                             "S1: " + self.eia_df['S1_substrate'].map(S1_dict).fillna('') + '; ' +
                                             "S2: " + self.eia_df['S2_surfacewater'].map(S2_dict).fillna('') + '; ' +
                                             "S3: " + self.eia_df['S3_algalgrowth'].map(S3_dict).fillna('') +
-                                            self.eia_df["Water_source_desc"]
+                                            water_source
             )
 
 
