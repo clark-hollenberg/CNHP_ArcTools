@@ -127,7 +127,7 @@ class ProcessTableToEIA(object):
             self.eia_df[eia_cols] = self.eia_df[eia_cols].apply(convert_to_score)
 
             # compress h3_columns
-            h3_cols = ['H3Playa', 'H3Riverine', 'S1_substrate']
+            h3_cols = ['H3Marsh','H3Playa', 'H3Riverine']
             self.eia_df["H3"] = self.eia_df[h3_cols].bfill(axis=1).iloc[:, 0]
 
             # compress V4_columns
