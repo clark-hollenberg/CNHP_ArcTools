@@ -327,7 +327,7 @@ class ProcessTableToEIA(object):
 
             if out_excel not in [None, ""]:
                 self.eia_df.to_excel(out_excel, index=False)
-            self.eia_df.to_csv(out_excel, index=False)
+            self.eia_df.to_excel(out_excel, index=False)
             print(f"EIA descriptions have been successfully written to {out_excel}")
 
             arcpy.AddMessage("Writing output table...")
