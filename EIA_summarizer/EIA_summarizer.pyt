@@ -123,7 +123,7 @@ class ProcessTableToEIA(object):
 
             eia_cols = ['L1', 'L2', 'B1', 'B2', 'B3a', 'B3b',
                                 'V1', 'V2', 'V3', 'V4herb', 'V4woody', 'V5', 'V6',
-                                'H1_metrics', 'H2_Hydroperiod', 'H3Marsh', 'H3Playa', 'H3Riverine','S1_substrate', 'S2_surfacewater', 'S3_algalgrowth', 'size_rating']
+                                'H1_metrics', 'H2_Hydroperiod', 'H3Marsh', 'H3Playa', 'H3Riverine','S1_substrate', 'S2_surfacewater', 'S3_algalgrowth', 'd_size_rating_id']
             self.eia_df[eia_cols] = self.eia_df[eia_cols].apply(convert_to_score)
 
             # compress h3_columns
@@ -176,16 +176,16 @@ class ProcessTableToEIA(object):
                 ####### calculate EO score
                 eo_score = eia_score
                 # # Adjust EIA Rank based on Z1 Size
-                if pd.notna(eia_row['size_rating']):
-                    if eia_row['size_rating'] == 1:
+                if pd.notna(eia_row['d_size_rating_id']):
+                    if eia_row['d_size_rating_id'] == 1:
                         eo_score = eia_score - 0.5
-                    elif eia_row['size_rating'] == 3:
+                    elif eia_row['d_size_rating_id'] == 3:
                         eo_score = eia_score - 0.25
-                    elif eia_row['size_rating'] == 4:
+                    elif eia_row['d_size_rating_id'] == 4:
                         eo_score = eia_score + 0.25
                         if eo_score > 5:
                             eo_score = 5
-                    elif eia_row['size_rating'] == 5:
+                    elif eia_row['d_size_rating_id'] == 5:
                         eo_score = eia_score + 0.5
                         if eo_score > 5:
                             eo_score = 5
