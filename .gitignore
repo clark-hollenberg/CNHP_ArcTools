@@ -3,5 +3,6 @@ __pycache__/
 *.xml
 ParcelOutputs
 ParcelsCopy
+TIA_Parcel/
 *.pdf*
 Photos/

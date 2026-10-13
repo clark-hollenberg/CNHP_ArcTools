@@ -1,0 +1,79 @@
+﻿EIA_Value,Description,Field
+5,(A) 90-100% contiguous natural land,L1A
+4,(B) 60-90% contiguous natural land,L1A
+3,(C) 20-60% contiguous natural land,L1A
+1,(D) <20% contiguous natural land,L1A
+5,(A) 95-100% natural habitat upstream,L1B
+4,(B) 80-95% natural habitat upstream,L1B
+3,(C) 50-80% natural habitat upstream,L1B
+1,(B) <20% natural habitat upstream,L1B
+5,(A) Land Use Index = 9.5-10,L2
+4,(B) Land Use Index = 8.0-9.4,L2
+3,(C) Land Use Index = 4.0-7.9,L2
+1,(D) Land Use Index = <4.0,L2
+5,(A) 100% surrounded by natural buffer,B1
+4,(B) 75-99% surrounded by natural buffer,B1
+3,(C) 25-74% surrounded by natural buffer,B1
+1,(D) <25% surrounded by natural buffer,B1
+5,(A) 100+m buffer width,B2
+4,(B) 75-99m buffer width,B2
+3,(C) 25-74m buffer width,B2
+1,(D) <25m buffer width,B2
+5,(A) 95-100% relative cover of native plants and 0-5% non-native cover in buffer,B3
+4,(B) 75-95% relative cover of native plants and 5-25% non-native cover in buffer,B3
+3,(C) 25-75% relative cover of native plants and 25-75% non-native cover in buffer,B3
+1,(D) <25% relative cover of native plants and >75% non-native cover in buffer,B3
+5,"(A) intact soils, water quality and little to no human use in buffer",B4
+4,"(B) minor soil disturbance, water quality concerns, and/or human use in buffer",B4
+3,"(C) moderate soil disturbance,  water quality concerns, and/or human use in buffer",B4
+1,"(D) significant soil disturbance, water quality concerns, and/or human use in buffer",B4
+5,(A) 99-100% relative cover native plants,V1
+4,(B) 95-99% relative cover native plants,V1
+3,(C) 85-95% relative cover native plants,V1
+2,(C-) 60-85% relative cover native plants,V1
+1,(A) 99-100% relative cover native plants,V1
+5,(A) no invasives,V2
+4,(B) <4% absolute cover of invasives,V2
+3,(C) 4-10% absolute cover of invasives,V2
+2,(C-) 10-30% absolute cover of invasives,V2
+1,(D) >30% absolute cover of invasives,V2
+5,(A) natural native species composition,V3
+4,(B) minor disturbances to native species composition,V3
+3,(C) moderately disturbed native species composition,V3
+1,(D) severely disturbed native species composition,V3
+5,(A) natural vegetation structure,V4
+4,(B) minor disturbances to vegetation structure,V4
+3,(C) moderately disturbed vegetation structure,V4
+1,(D) severely disturbed vegetation structure,V4
+5,(A) natural woody species regeneration,V5
+4,(B) minor disturbances to woody species regen,V5
+3,(C) moderately disturbed woody species regen,V5
+1,(C) severely disturbed woody species regen,V5
+5,(A) normal woody debris,V6
+3,(C) moderate impacts to woody debris,V6
+1,(D) severe impacts to woody debris,V6
+5,(A) natural water sources,H1
+4,(B) >80% natural water sources,H1
+3,(C) 40-80% natural water sources,H1
+1,(D) <40% natural water sources,H1
+5,(A) natural hydroperiod,H2
+4,(B) minor impacts to hydroperiod,H2
+3,(C) moderate impacts to hydroperiod,H2
+1,(D) severe impacts to hydroperiod,H2
+5,(A) excellent hydrologic connectivity,H3
+4,(B) minor impacts to hydrologic connectivity,H3
+3,(C) moderate impacts to hydrologic connectivity,H3
+1,(D) severe impacts to hydrologic connectivity,H3
+5,(A) no soil disturbance,S1
+4,(B) minimal soil disturbance,S1
+3,(C) moderate soil disturbance,S1
+1,(D) severe soil disturbance,S1
+5,(A) no turbidity/pollutants,S2
+4,(B) minor turbidity/pollutants,S2
+3,(C) moderate turbidity/pollutants,S2
+1,(D) severe turbitidty/pollutantas,S2
+5,(A) natural algal growth,S3
+4,(B) minor algal growth,S3
+3,(C) moderate algal growth,S3
+1,(D) severe algal growth,S3
+,,S3
