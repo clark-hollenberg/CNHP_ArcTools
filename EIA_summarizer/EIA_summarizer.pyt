@@ -69,9 +69,6 @@ class ProcessTableToEIA(object):
             in_table = parameters[0].valueAsText
             arcpy.AddMessage("Reading input table...")
 
-            # Convert to pandas DataFrame (fast & flexible)
-            
-
             # load fields in input table
             bad_types = ("Geometry", "OID", "Blob", "Raster", "Guid", "Date")
 
@@ -124,6 +121,7 @@ class ProcessTableToEIA(object):
             eia_cols = ['L1', 'L2', 'B1', 'B2', 'B3a', 'B3b',
                                 'V1', 'V2', 'V3', 'V4herb', 'V4woody', 'V5', 'V6',
                                 'H1_metrics', 'H2_Hydroperiod', 'H3Marsh', 'H3Playa', 'H3Riverine','S1_substrate', 'S2_surfacewater', 'S3_algalgrowth', 'd_size_rating_id']
+            
             self.eia_df[eia_cols] = self.eia_df[eia_cols].apply(convert_to_score)
 
             # compress h3_columns
@@ -327,8 +325,7 @@ class ProcessTableToEIA(object):
 
             if out_excel not in [None, ""]:
                 self.eia_df.to_excel(out_excel, index=False)
-            self.eia_df.to_excel(out_excel, index=False)
-            print(f"EIA descriptions have been successfully written to {out_excel}")
+                print(f"EIA descriptions have been successfully written to {out_excel}")
 
             arcpy.AddMessage("Writing output table...")
 
@@ -343,10 +340,13 @@ class ProcessTableToEIA(object):
             # Cast object/string columns
             for col in self.eia_df.select_dtypes(include=["object", "string"]):
                 self.eia_df[col] = self.eia_df[col].astype(str)
-
+            
             # Convert to NumPy record array
             out_array = np.rec.fromrecords(self.eia_df.to_numpy(), names=list(self.eia_df.columns))
-
+            # filter to necessary rows
+            out_array = out_array[["globalid", "land_rank", "condition_rank", "eo_rank",
+                       "landscape_context_comm", "landscape_context_auto", "condition_EIAcomment", "condition_auto"]]
+            
             # Delete output table if exists
             if arcpy.Exists(out_table):
                 arcpy.management.Delete(out_table)
